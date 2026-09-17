@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customers - Customer Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Customer Management System</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Customers</h2>
+
+            <table id="customersTable">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>001</td>
+                        <td id="customerName001">John Smith</td>
+                        <td id="customerEmail001">john@test.com</td>
+                        <td id="customerStatus001">Active</td>
+                        <td>
+                            <button id="viewCustomer001"
+                                    onclick="openCustomerDetails('001')">
+                                View Customer
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>002</td>
+                        <td id="customerName002">Jane Doe</td>
+                        <td id="customerEmail002">jane@test.com</td>
+                        <td id="customerStatus002">Active</td>
+                        <td>
+                            <button id="viewCustomer002"
+                                    onclick="openCustomerDetails('002')">
+                                View Customer
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>003</td>
+                        <td id="customerName003">Bob Wilson</td>
+                        <td id="customerEmail003">bob@test.com</td>
+                        <td id="customerStatus003">Inactive</td>
+                        <td>
+                            <button id="viewCustomer003"
+                                    onclick="openCustomerDetails('003')">
+                                View Customer
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

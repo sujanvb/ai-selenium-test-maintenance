@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Information - Customer Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <span class="logo">CMS</span>
+            <span>Customer Management System</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="page-header">
+
+            <div>
+                <h2>Customer Information</h2>
+                <p>Review and update customer information</p>
+            </div>
+
+        </section>
+
+        <section class="customer-form-card">
+
+            <form id="customerInformationForm">
+
+                <fieldset>
+
+                    <legend>Personal Information</legend>
+
+                    <div class="field-row">
+
+                        <div class="input-group">
+
+                            <span class="field-label">
+                                Customer Name
+                            </span>
+
+                            <input type="text"
+                                   name="customer_name"
+                                   id="customer_name">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <span class="field-label">
+                                Email Address
+                            </span>
+
+                            <input type="email"
+                                   name="customer_email"
+                                   id="customer_email">
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Contact Information</legend>
+
+                    <div class="field-row">
+
+                        <div class="input-group">
+
+                            <span class="field-label">
+                                Phone Number
+                            </span>
+
+                            <input type="text"
+                                   name="customer_phone"
+                                   id="customer_phone">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <span class="field-label">
+                                Address
+                            </span>
+
+                            <input type="text"
+                                   name="customer_address"
+                                   id="customer_address">
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+                <div class="actions">
+
+                    <button type="button"
+                            id="updateCustomerBtn"
+                            onclick="updateCustomer()">
+                        Update Customer
+                    </button>
+
+                    <button type="button"
+                            id="backToCustomers"
+                            onclick="goToCustomers()">
+                        Back to Customers
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

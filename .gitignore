@@ -1,0 +1,21 @@
+# Portable Tool Isolation Cache
+.tools/
+
+# Temporary Process Lockfiles
+.server.pid
+
+# Maven Build Output
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE and Windows System Files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+Thumbs.db
