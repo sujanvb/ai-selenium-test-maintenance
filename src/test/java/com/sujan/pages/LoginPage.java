@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends MasterPage{
 
-	By usernameInputField = By.xpath("//input[@id='username']");
-	By passwordInputField = By.xpath("//input[@id='password']");
-	By loginButton = By.xpath("//button[@id='loginButton']");
+	By emailAddressInputField = By.xpath("//input[@id='userEmail']");
+	By passwordInputField = By.xpath("//input[@id='userPassword']");
+	By signInButton = By.xpath("//button[@id='signInButton']");
 	
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -16,13 +16,13 @@ public class LoginPage extends MasterPage{
 	@Override
 	public boolean isPageLoaded() {
 		System.out.println("Checking if login page is loaded");
-		actions.waitForVisibility(usernameInputField);
+		actions.waitForVisibility(emailAddressInputField);
 		return actions.isDisplayed(passwordInputField);
 	}
 
-	public void enterUserName(String username) {
-		System.out.println("Populating username field as: "+username);
-		actions.setText(usernameInputField, username);
+	public void enterEmailAddress(String emailAddress) {
+		System.out.println("Populating email address field as: "+emailAddress);
+		actions.setText(emailAddressInputField, emailAddress);
 	}
 	
 	public void enterPassword(String password) {
@@ -30,8 +30,8 @@ public class LoginPage extends MasterPage{
 		actions.setText(passwordInputField, password);
 	}
 	
-	public void clickLoginButton() {
-		System.out.println("Clicking on login button");
-		actions.click(loginButton);
+	public void clickSignInButton() {
+		System.out.println("Clicking on sign in button");
+		actions.click(signInButton);
 	}
 }

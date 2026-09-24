@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class DashboardPage extends MasterPage{
 
 	By dashboardPageTitle = By.xpath("//h2[normalize-space(text())='Dashboard']");
-	By viewCustomersButton = By.xpath("//button[@id='viewCustomersButton']");
+	By manageCustomersButton = By.xpath("//button[@id='manageCustomersButton']");
 	
 	public DashboardPage(WebDriver driver) {
 		super(driver);
@@ -19,8 +19,8 @@ public class DashboardPage extends MasterPage{
 		return actions.isDisplayed(dashboardPageTitle);
 	}
 
-	public void clickViewCustomersButton() {
-		System.out.println("Clicking View customers button");
-		actions.click(viewCustomersButton);
+	public void clickManageCustomersButton() {
+		System.out.println("Clicking Manage customers button");
+		actions.click(manageCustomersButton);
 	}
 }

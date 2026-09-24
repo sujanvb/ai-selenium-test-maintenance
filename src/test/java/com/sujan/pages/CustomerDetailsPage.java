@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 public class CustomerDetailsPage extends MasterPage{
 
-	By customerDetailsPageTitle = By.xpath("//h2[normalize-space(text())='Customer Details']");
-	By nameInputField = By.xpath("//input[@id='customerName']");
-	By emailInputField = By.xpath("//input[@id='email']");
-	By phoneInputField = By.xpath("//input[@id='phone']");
-	By addressInputField = By.xpath("//input[@id='address']");
-	By saveButton = By.xpath("//button[@id='saveCustomer']");
+	By customerDetailsPageTitle = By.xpath("//h2[normalize-space(text())='Customer Information']");
+	By nameInputField = By.xpath("//input[@id='customer_name']");
+	By emailInputField = By.xpath("//input[@id='customer_email']");
+	By phoneInputField = By.xpath("//input[@id='customer_phone']");
+	By addressInputField = By.xpath("//input[@id='customer_address']");
+	By updateCustomerButton = By.xpath("//button[@id='updateCustomerBtn']");
+	By backToCustomersButton = By.xpath("//button[@id='backToCustomers']");
 	
 	public CustomerDetailsPage(WebDriver driver) {
 		super(driver);
@@ -67,8 +68,13 @@ public class CustomerDetailsPage extends MasterPage{
 		return text;
 	}
 	
-	public void clickSaveButton() {
-		System.out.println("Clicking save Button");
-		actions.click(saveButton);
+	public void clickUpdateCustomerButton() {
+		System.out.println("Clicking update customer Button");
+		actions.click(updateCustomerButton);
+	}
+	
+	public void clickBackToCustomersButton() {
+		System.out.println("Clicking back to customers Button");
+		actions.click(backToCustomersButton);
 	}
 }
