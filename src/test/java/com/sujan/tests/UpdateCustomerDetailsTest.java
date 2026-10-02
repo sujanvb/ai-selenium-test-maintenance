@@ -44,40 +44,42 @@ public class UpdateCustomerDetailsTest {
         }
         Assert.assertTrue(loginPageLoaded, "Login Page is not loaded for URL: "+url);
         
-        loginPage.enterUserName("admin");
+        String userEmail = "";
+        
+        loginPage.enterEmail(userEmail);
         loginPage.enterPassword("admin");
-        loginPage.clickLoginButton();
+        loginPage.clickSignInButton();
         
         boolean dashboardPageLoaded = dashboardPage.isPageLoaded();
         
         if(dashboardPageLoaded) {
-        	ReportManager.updateTestLog("Fill credentials and click login button<br>Verify if dashboard page is loaded", "Dashboard Page is loaded", "PASS");
+        	ReportManager.updateTestLog("Fill credentials and click sign in button<br>Verify if dashboard page is loaded", "Dashboard Page is loaded", "PASS");
         } else {
-        	ReportManager.updateTestLog("Fill credentials and click login button<br>Verify if dashboard page is loaded", "Dashboard Page is not loaded", "FAIL");
+        	ReportManager.updateTestLog("Fill credentials and click sign in button<br>Verify if dashboard page is loaded", "Dashboard Page is not loaded", "FAIL");
         }
         Assert.assertTrue(dashboardPageLoaded, "Dashboard Page is not loaded after login");
         
-        dashboardPage.clickViewCustomersButton();
+        dashboardPage.clickManageCustomersButton();
         
         boolean customersPageLoaded = customersPage.isPageLoaded();
         
         if(customersPageLoaded) {
-        	ReportManager.updateTestLog("Click View Customers button<br>Verify if customers page is loaded", "Customers Page is loaded", "PASS");
+        	ReportManager.updateTestLog("Click Manage Customers button<br>Verify if customers page is loaded", "Customers Page is loaded", "PASS");
         } else {
-        	ReportManager.updateTestLog("Click View Customers button<br>Verify if customers page is loaded", "Customers Page is not loaded", "FAIL");
+        	ReportManager.updateTestLog("Click Manage Customers button<br>Verify if customers page is loaded", "Customers Page is not loaded", "FAIL");
         }
         Assert.assertTrue(customersPageLoaded, "Customers Page is not loaded");
         
         String customerID = "001";
         
-        customersPage.clickViewCustomerButtonForID(customerID);
+        customersPage.clickViewDetailsButtonForID(customerID);
         
         boolean customerDetailsPageLoaded = customerDetailsPage.isPageLoaded();
         
         if(customerDetailsPageLoaded) {
-        	ReportManager.updateTestLog("Click View Customer button for ID '"+customerID+"'<br>Verify if customer details page is loaded", "Customer Details Page is loaded", "PASS");
+        	ReportManager.updateTestLog("Click View Details button for ID '"+customerID+"'<br>Verify if customer details page is loaded", "Customer Details Page is loaded", "PASS");
         } else {
-        	ReportManager.updateTestLog("Click View Customer button for ID '"+customerID+"'<br>Verify if customer details page is loaded", "Customer Details Page is not loaded", "FAIL");
+        	ReportManager.updateTestLog("Click View Details button for ID '"+customerID+"'<br>Verify if customer details page is loaded", "Customer Details Page is not loaded", "FAIL");
         }
         Assert.assertTrue(customerDetailsPageLoaded, "Customer Details Page is not loaded for ID '"+customerID+"'");
         
@@ -94,16 +96,24 @@ public class UpdateCustomerDetailsTest {
         }
         Assert.assertTrue(nameUpdatedOnDetailsPage, "Name was not updated to '"+updatedName+"' on Customer Details Page");
         
-        customerDetailsPage.clickSaveButton();
+        customerDetailsPage.clickUpdateCustomerButton();
+        customerDetailsPage.clickBackToCustomersButton();
         
-        customersPage.isPageLoaded();
+        boolean customersPageReloaded = customersPage.isPageLoaded();
+        
+        if(customersPageReloaded) {
+        	ReportManager.updateTestLog("Click on update customer button<br>Click on back to customers button<br>Verify if customers page is loaded", "Customers Page is loaded", "PASS");
+        } else {
+        	ReportManager.updateTestLog("Click on update customer button<br>Click on back to customers button<br>Verify if customers page is loaded", "Customers Page is not loaded", "FAIL");
+        }
+        Assert.assertTrue(customersPageReloaded, "Customers Page is not loaded after clicking back to customers");
         
         boolean nameUpdatedInCustomersList = customersPage.getNameOfID(customerID).equals(updatedName);
         
         if(nameUpdatedInCustomersList) {
-        	ReportManager.updateTestLog("Click on save button<br>Verify if Customer ID '"+customerID+"' name is updated to '"+updatedName+"' in the customers page", "Customer ID '"+customerID+"' name is updated to '"+updatedName+"' in the customers page", "PASS");
+        	ReportManager.updateTestLog("Verify if Customer ID '"+customerID+"' name is updated to '"+updatedName+"' in the customers page", "Customer ID '"+customerID+"' name is updated to '"+updatedName+"' in the customers page", "PASS");
         } else {
-        	ReportManager.updateTestLog("Click on save button<br>Verify if Customer ID '"+customerID+"' name is updated to '"+updatedName+"' in the customers page", "Customer ID '"+customerID+"' name is not updated to '"+updatedName+"' in the customers page", "FAIL");
+        	ReportManager.updateTestLog("Verify if Customer ID '"+customerID+"' name is updated to '"+updatedName+"' in the customers page", "Customer ID '"+customerID+"' name is not updated to '"+updatedName+"' in the customers page", "FAIL");
         }
         Assert.assertTrue(nameUpdatedInCustomersList, "Customer ID '"+customerID+"' name is not updated to '"+updatedName+"' in the customers page");
         
