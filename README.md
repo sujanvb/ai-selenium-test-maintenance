@@ -1,6 +1,6 @@
 # AI-Assisted Selenium Test Maintenance
 
-> \*\*Note:\*\* All instructions in this README are written for \*\*Windows\*\*. Commands, paths, and the Jenkins pipeline are Windows-specific.
+> **Note:** All instructions in this README are written for **Windows**. Commands, paths, and the Jenkins pipeline are Windows-specific.
 
 An AI-assisted Selenium test-maintenance project that demonstrates how existing Java + Selenium + Page Object Model (POM) automation can be updated when an application's UI changes.
 
@@ -186,7 +186,7 @@ There are **two ways to execute the project**.
 
 This is useful when running and demonstrating the project locally.
 
-#### 1\. Start the application
+#### 1. Start the application
 
 Open a terminal in the project directory.
 
@@ -209,7 +209,7 @@ or:
 http://localhost:8000/v2/login.html
 ```
 
-#### 2\. Configure the automation URL
+#### 2. Configure the automation URL
 
 Open:
 
@@ -220,18 +220,18 @@ src/test/java/resources/GlobalSettings.properties
 Set:
 
 ```properties
-application\_url=http://localhost:8000/v1/login.html
+application_url=http://localhost:8000/v1/login.html
 ```
 
 or for V2:
 
 ```properties
-application\_url=http://localhost:8000/v2/login.html
+application_url=http://localhost:8000/v2/login.html
 ```
 
 The URL must point to the application version currently being tested.
 
-#### 3\. Run the Maven test
+#### 3. Run the Maven test
 
 From the project root:
 
@@ -241,7 +241,7 @@ mvn test
 
 The Selenium test will start the browser and execute the automation against the configured application.
 
-#### 4\. Stop the application
+#### 4. Stop the application
 
 After testing, stop the Python HTTP server with:
 
@@ -251,9 +251,9 @@ Ctrl + C
 
 Close the terminal.
 
-To run the other application version, open a fresh terminal and repeat steps 1–4 with the matching `application\_url` value.
+To run the other application version, open a fresh terminal and repeat steps 1–4 with the matching `application_url` value.
 
-\---
+---
 
 ### Option 2 — Jenkins
 
@@ -263,16 +263,16 @@ The Jenkins job provides three parameters:
 
 |Parameter|Purpose|
 |-|-|
-|`PROJECT\_PATH`|Local path of the project|
-|`APP\_PORT`|Port on which the application is started|
-|`APP\_VERSION`|Application version to test (`v1` or `v2`)|
+|`PROJECT_PATH`|Local path of the project|
+|`APP_PORT`|Port on which the application is started|
+|`APP_VERSION`|Application version to test (`v1` or `v2`)|
 
 Example:
 
 ```text
-PROJECT\_PATH = D:\\SUJAN\\GitHubRepo\\ai-selenium-test-maintenance
-APP\_PORT     = 8000
-APP\_VERSION  = v1
+PROJECT_PATH = D:\SUJAN\GitHubRepo\ai-selenium-test-maintenance
+APP_PORT     = 8000
+APP_VERSION  = v1
 ```
 
 The Jenkins pipeline:
@@ -282,7 +282,7 @@ The Jenkins pipeline:
 3. Downloads Maven 3.9.12 if required.
 4. Downloads Python 3.14.7 if required.
 5. Dynamically creates the application URL using the selected port and application version.
-6. Updates only `application\_url` in `GlobalSettings.properties`.
+6. Updates only `application_url` in `GlobalSettings.properties`.
 7. Starts the selected application using Python's HTTP server.
 8. Runs `mvn test`.
 9. Stops the application server after execution.
@@ -326,12 +326,12 @@ Do not replace the entire framework.
 
 ### Step 5 — Run V2
 
-Before running, update `GlobalSettings.properties` to point `application\_url` at the V2 application — the AI is instructed not to touch this file, so this step is done manually.
+Before running, update `GlobalSettings.properties` to point `application_url` at the V2 application — the AI is instructed not to touch this file, so this step is done manually.
 
 Run the updated automation against V2 using either:
 
 * Manual execution, or
-* Jenkins with `APP\_VERSION = v2`
+* Jenkins with `APP_VERSION = v2`
 
 ### Step 6 — Verify the result
 
