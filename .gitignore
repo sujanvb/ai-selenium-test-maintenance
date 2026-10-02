@@ -1,5 +1,5 @@
 # Portable Tool Isolation Cache
-.tools/
+tools/
 
 # Temporary Process Lockfiles
 .server.pid

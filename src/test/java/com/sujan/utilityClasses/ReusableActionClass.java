@@ -62,6 +62,7 @@ public class ReusableActionClass {
         try {
             System.out.println("Getting text from element: " + locator);
             waitForVisibility(locator);
+            waitForClickability(locator);
             return driver.findElement(locator).getText();
         } catch (Exception e) {
             System.out.println("[Exception in getText] " + e.getMessage());
